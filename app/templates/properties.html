@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+  <h1>Properties</h1>
+  <div class="cards">
+    {% for property in properties %}
+        <div class="card">
+          <img src="{{ url_for('images', filename=property.photo) }}" class="card-img-top" alt="{{ property.photo }}">
+          <div class="cb">
+            <h5 class="title">{{ property.title }}</h5>
+            <p class="location"><i class="fa fa-map-marker" aria-hidden="true"></i>{{ property.location }}</p>
+            <div class="price-body">
+              <p class="prices">{{ property.price }}</p>
+            </div>
+          </div>
+          <p class="prop-link"><a href="{{ url_for('property', propertyid=property.id) }}">View Details</a></p>
+        </div>
+    {% endfor %}
+  </div>
+{% endblock %}
+                     
